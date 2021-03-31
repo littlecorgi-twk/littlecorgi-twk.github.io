@@ -1,0 +1,10 @@
+{
+  "name" : "GitHub博客",
+  "fileExtension" : ".md",
+  "autoUploadInsertedImageKey" : "七牛图床-https:\/\/upload-z2.qiniup.com",
+  "autoUploadInsertedImage" : false,
+  "folderType" : 10,
+  "mediaFloder" : "media",
+  "orderBy" : 0,
+  "newlinesToBR" : 0
+}

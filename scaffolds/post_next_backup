@@ -1,0 +1,11 @@
+---
+title: {{ title }}
+date: {{ date }}
+categories: 
+- C1
+- C2
+tags: [T1, T2]
+comments: true
+modified: {{ date }}
+copyright: true
+---

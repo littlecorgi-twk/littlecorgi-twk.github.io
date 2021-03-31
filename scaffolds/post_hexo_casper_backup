@@ -1,0 +1,15 @@
+---
+title: {{ title }}
+date: {{ date }}
+categories: 
+- C1
+- C2
+tags: [T1, T2]
+comments: true
+modified: {{ date }}
+copyright: true
+cover_img:     # 在文章摘要上显示
+feature_img: false   # 在文章详细页面上置顶
+keywords:      # 关键字
+description:   # 文章描述
+---

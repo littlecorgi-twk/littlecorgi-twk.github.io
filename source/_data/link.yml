@@ -1,0 +1,32 @@
+class:
+  class_name: 友情链接
+  link_list:
+    1:
+      name: JerryC
+      link: https://jerryc.me/
+      avatar: https://jerryc.me/img/avatar.png
+      descr: 今日事,今日毕
+    2:
+      name: 方寸间 - WithdewHua
+      link: https://10101.io
+      avatar: https://cdn.jsdelivr.net/gh/WithdewHua/static@withdewhua-hugo/img/avatar.jpg
+      descr: 拖延症患者的瞎折腾
+
+class2:
+  class_name: 我的链接
+  link_list:
+    1:
+      name: 我的CSDN
+      link: https://blog.csdn.net/a1203991686
+      avatar: https://profile.csdnimg.cn/0/8/8/3_a1203991686
+      descr: CSDN博客，基本上与此博客同步
+    2:
+      name: 我的掘金
+      link: https://juejin.im/user/5b29c40ff265da59780b8272
+      avatar: https://user-gold-cdn.xitu.io/2018/6/20/1641b2b7bbbd3323?imageView2/1/w/180/h/180/q/85/format/webp/interlace/1
+      descr: 掘金博客，基本上与此博客同步
+    3:
+      name: 我的GitHub
+      link: https://github.com/littlecorgi-twk
+      avatar: https://avatars3.githubusercontent.com/u/20331307?s=460&u=829cc604e03383ba8d9af18e09176a5fdf061c62&v=4
+      descr: GitHub链接

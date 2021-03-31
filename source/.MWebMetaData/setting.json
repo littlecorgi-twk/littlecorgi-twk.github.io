@@ -1,0 +1,10 @@
+{
+  "name" : "GitHub Pager",
+  "fileExtension" : ".md",
+  "autoUploadInsertedImageKey" : "七牛图床-https:\/\/upload-z2.qiniup.com",
+  "autoUploadInsertedImage" : true,
+  "folderType" : 10,
+  "mediaFloder" : "media",
+  "orderBy" : 0,
+  "newlinesToBR" : 0
+}
