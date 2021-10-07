@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://littlecorgi-twk.github.io/
+url: https://www.littlecorgi.top/
 root: /
 #permalink: :year/:month/:day/:title/
 #permalink_defaults:
@@ -89,13 +89,9 @@ theme: Butterfly
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
 - type: git
-  repo: 
-    gtihub: git@github.com:littlecorgi-twk/littlecorgi-twk.github.io,master
-    aliyun: root@47.103.81.77:~/blog.git,master
-
-
-#  repository: https://github.com/littlecorgi-twk/littlecorgi-twk.github.io.git,master
-#  branch: master
+  repo: git@github.com:littlecorgi-twk/littlecorgi-twk.github.io,master
+- type: git
+  repo: root@119.91.255.214:~/blog.git/blog.git,master
 
 # local_search
 search:
