@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>面经-手QAndroid面经 | littlecorgiの小站</title><meta name="author" content="littlecorgi"><meta name="copyright" content="littlecorgi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="2020&amp;#x2F;9&amp;#x2F;26整理  客户端0基础的，感觉没问个啥一面&amp;#x2F;2020-8-12 Java相关，Java垃圾回收，Java从编译到加载经过的步骤，Java反射的机制 计算机网络，每层各有什么协议，讲一讲http1.1，http2.0，http3.0各有什么改变，tcp可靠传输，http控制缓存的头部"><link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png"><link rel="canonical" href="https://www.littlecorgi.top/posts/9d6997ec"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d96f5834c289ac641e8340af58c61f69";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面经-手QAndroid面经',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-01-01 00:00:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="littlecorgiの小站" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/uploads/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标志</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Koin"><i class="fa-fw /koin/"></i><span> 0</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">littlecorgiの小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标志</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Koin"><i class="fa-fw /koin/"></i><span> 0</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面经-手QAndroid面经</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2018-12-31T16:00:03.000Z" title="发表于 2019-01-01 00:00:03">2019-01-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2018-12-31T16:00:03.000Z" title="更新于 2019-01-01 00:00:03">2019-01-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/">面试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面经-手QAndroid面经"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>2020/9/26整理</p>
+</blockquote>
+<h1 id="客户端0基础的，感觉没问个啥"><a href="#客户端0基础的，感觉没问个啥" class="headerlink" title="客户端0基础的，感觉没问个啥"></a>客户端0基础的，感觉没问个啥</h1><h2 id="一面-2020-8-12"><a href="#一面-2020-8-12" class="headerlink" title="一面/2020-8-12"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/473953">一面/2020-8-12</a></h2><ul>
+<li>Java相关，Java垃圾回收，Java从编译到加载经过的步骤，Java反射的机制</li>
+<li>计算机网络，每层各有什么协议，讲一讲http1.1，http2.0，http3.0各有什么改变，tcp可靠传输，http控制缓存的头部字段，有什么安全威胁。</li>
+<li>操作系统，线程与进程，单核处理器怎么实现多线程。</li>
+<li>数据库，怎么回滚，怎么优化查询。</li>
+<li>向量和链表的使用场景</li>
+<li>算法题：从非负无序数组中找到缺失的最小非负整数。</li>
+<li>反问：部门做什么业务的。</li>
+</ul>
+<h2 id="二面-2020-8-20"><a href="#二面-2020-8-20" class="headerlink" title="二面/2020/8/20"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/483850">二面/2020/8/20</a></h2><ul>
+<li>项目相关</li>
+<li>tcp、udp相关，滑动窗口</li>
+<li>线程、进程相关，堆栈相关</li>
+<li>volatile，synchronized</li>
+<li>Object中的方法，equal和hashcode的关系</li>
+<li>上线做道题</li>
+<li>接雨水那道，我先用单调栈解出来了。</li>
+<li>把空间优化，然后我勉勉强强用双指针解出来了。</li>
+<li>你对移动客户端了解有多少</li>
+<li>以后职业规划，为什么想做客户端</li>
+<li>秋招有什么进展。</li>
+</ul>
+<h2 id="三面-2020-9-2"><a href="#三面-2020-9-2" class="headerlink" title="三面/2020-9-2"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/495879">三面/2020-9-2</a></h2><ul>
+<li>寒暄一下，base深圳可以吗，为什么不考研，介绍下你的专业，我看你主要用Java的，会c++吗。</li>
+<li>本地ide写代码，单链表每k个一翻转，剩余不足k个，保持原位置，自己定义数据结构，自己写测试用例。</li>
+<li>Java中软引用，弱引用说一下。垃圾回收说一下。</li>
+<li>static修饰的代码块什么时候执行</li>
+<li>类加载过程</li>
+<li>线程与进程的区别，进程内存中有哪些东西，堆栈有什么区别，哪个效率更高。多线程编程，怎么保证线程同步。</li>
+<li>内核态和用户态了解吗，内核态可以访问哪些资源。</li>
+<li>网络：MTU了解吗？ping是用到什么协议</li>
+<li>数据结构：通讯录程序，打开时，将数据库中的数据读到内存，你用什么数据结构来存，保证查询、添加、删除、排序比较高效。</li>
+<li>面试官：我这里给你过了，等hr面吧，哦对了，你是一点都不会c++吗（真不会）</li>
+</ul>
+<p>总结：问了好多底层，感觉完全脱离了Java技术栈（我好菜）。面了各个大厂的客户端和服务端，我发现，客户端比较喜欢问操作系统的底层包括jvm甚至到汇编层面，服务端喜欢问各种框架中间件数据库linux，当然不管哪个一般都是要来道算法题的。</p>
+<h2 id="HR-2020-9-19"><a href="#HR-2020-9-19" class="headerlink" title="HR/2020-9-19"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/500049?source_id=profile_create&amp;channel=1009">HR/2020-9-19</a></h2><p>简单的背景调查，具体问题看上面链接</p>
+<h1 id="18年的，有点老了，但是可以看下"><a href="#18年的，有点老了，但是可以看下" class="headerlink" title="18年的，有点老了，但是可以看下"></a>18年的，有点老了，但是可以看下</h1><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/91873">一面</a></h2><p>问C的有点多，因为是面试官是iOS的</p>
+<ul>
+<li>谈谈你学习过的架构模式 MVC MVP MVVM</li>
+<li>一个Union类型，共有一个int类型、Float、Double类型的字段，请问在32位的CPU创建时需要占用多少字节？</li>
+<li>Union和Struct的区别</li>
+<li>谈谈你所了解的C语言的内存管理</li>
+<li>说说你了解的程序设计模式，知道多少说多少</li>
+<li>说说TCP和UDP的区别，你认为QQ的实现是使用TCP还是UDP？</li>
+<li>谈谈你了解的C语言的编译过程</li>
+<li>进程和线程的区别</li>
+<li>谈谈你对Viper架构模式的了解</li>
+<li>Fiddler的工作原理解释一下</li>
+<li>死锁产生的原因以及解决办法</li>
+<li>进程的调度算法有哪些，分别解释一下？</li>
+<li>Android程序共享数据的方式有哪些？</li>
+<li>Android的性能优化</li>
+<li>Handler和HandlerThread的区别</li>
+<li>八皇后问题了解过吗？具体怎么实现的？</li>
+<li>解释一下异步编程，说说它的应用</li>
+<li>Android应用的启动过程</li>
+</ul>
+<h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><ul>
+<li>多线程了解吗？</li>
+<li>多线程如何实现通信？</li>
+<li>多线程如何实现线程安全？</li>
+<li>多线程如何实现同步机制？</li>
+<li>进程间的通信方式？</li>
+<li>谈谈你对架构模式和设计模式的理解。</li>
+<li>现在让你设计一个字典，说一下你的设计思路。</li>
+</ul>
+<h2 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h2><ul>
+<li>请你画出MVP架构图，并解释一遍它的运作流程。比如网络操作</li>
+<li>解释一下页面展示数据获取的数据来源。</li>
+<li>多线程会导致什么问题，应该怎么解决？</li>
+<li>Android进程的优先级是怎样的？</li>
+<li>说一下Activity的生命周期</li>
+<li>onStar和onResume方法的区别是什么？什么时候用onStart，什么时候用onResume.</li>
+<li>说一下冒泡排序和选择排序的区别？</li>
+<li>冒泡排序最优的时间复杂度？</li>
+<li>一棵没有特定顺序的二叉树，如何存放在文件中？</li>
+<li>手写代码，给一个int的数组，将其移动k位（使用交换的思想）。如array = [1,2,3,4,5], k = 2, 则移动后的array为[4,5,1,2,3]</li>
+<li>设计QQ传文件功能，并画出模块设计图。</li>
+<li>说一下防火墙穿越的实现原理</li>
+<li>加密算法和加密原理</li>
+<li>Https实现原理</li>
+<li>手写代码，无限大整数转16进制</li>
+<li>讲解一下登陆时密码加密过程</li>
+</ul>
+<blockquote>
+<p>PS:感觉难度好高，都怀疑是社招的</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>找不到手Q的了，再总结下腾讯的，可以结合下之前发的牛客网的总结，下面都是网络上的，以CSDN为主</p>
+</blockquote>
+<h1 id="Android面经-问题归纳"><a href="#Android面经-问题归纳" class="headerlink" title="Android面经| 问题归纳"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42895379/article/details/89343675">Android面经| 问题归纳</a></h1><h1 id="2020春招PCG"><a href="#2020春招PCG" class="headerlink" title="2020春招PCG"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40987010/article/details/106844530">2020春招PCG</a></h1><h2 id="简历面-应用宝"><a href="#简历面-应用宝" class="headerlink" title="简历面-应用宝"></a>简历面-应用宝</h2><ul>
+<li>String，StringBuffer，StringBuilder哪个是线程安全的？String与StringBuffer内部实现上有什么不同？用的时候怎么选择？</li>
+<li>HashMap的内部实现能说一下吗？</li>
+<li>单例模式了解吗？线程安全的单例模式说一下</li>
+<li>JVM虚拟机的内存分区有哪些？堆和栈的区别？</li>
+<li>TCP/UDP的区别？</li>
+<li>TCP三次握手和四次挥手过程说一下</li>
+<li>HTTP网络请求经过五层的解析，每一层分别是怎么解析的？</li>
+<li>Android方面，如何跨进程通信？跨进程通信的方式有哪些？Binder底层原理说一下</li>
+<li>跨线程怎么通信？</li>
+<li>那消息队列了解过吗，谈谈其内部实现原理？Handler的创建和MessageQueue/Looper有什么联系？</li>
+<li>内存泄露的原因说一下，怎么检测内存泄漏？有没有使用一些工具检测内存泄漏的经验？</li>
+<li>知道设计模式吗？说一些你用过的设计模式</li>
+<li>View的绘制过程你了解过吗？说一下</li>
+<li>当用户手指点击屏幕的时候，会产生什么事件？，onClick()方法在什么事件触发，在哪个地方调用</li>
+</ul>
+<h2 id="一面-应用宝"><a href="#一面-应用宝" class="headerlink" title="一面-应用宝"></a>一面-应用宝</h2><ul>
+<li>HashMap了解吗？说说内部实现原理</li>
+<li>java四类的线程池是哪四类？分别介绍下</li>
+<li>java四钟引用类型</li>
+<li>单例模式介绍下</li>
+<li>GC机制垃圾回收算法有哪些？</li>
+<li>说一下分代收集算法的详细过程</li>
+<li>TCP三次握手与四次挥手</li>
+<li>Android跨进程通信方式有哪些</li>
+<li>Android跨线程方式有哪些</li>
+<li>消息队列实现原理介绍下</li>
+<li>内存泄漏的原因说一下，用过什么工具检测内存泄漏？线上的工具用过吗</li>
+<li>View绘制的原理了解吗？介绍下</li>
+<li>了解过设计模式吗？说说你常用的设计模式有哪些</li>
+<li>ListView和RecyclerView的区别了解吗？说说RecyclerView的缓存机制</li>
+<li>View事件的分发机制知道吗？</li>
+<li>组件化和热修复，你了解过这些技术吗</li>
+<li>Flutter你研究过吗</li>
+<li>有什么问题想问我的？</li>
+</ul>
+<h2 id="二面-应用宝"><a href="#二面-应用宝" class="headerlink" title="二面-应用宝"></a>二面-应用宝</h2><ul>
+<li>上来先和我聊十来分钟的项目经历，项目的问题就因人而异了，没有参考价值，就不放出来了</li>
+<li>Mysql联合主键在什么情况下会失效，达不到快速索引的效果？</li>
+<li>Linux了解吗？<br>只会使用命令，没深入了解过（？？？懵逼状态2）</li>
+<li>考虑10亿条数据，里面存储的都是数字，要你设计一个思路，找出里面相同的数</li>
+<li>什么时候能来实习，能实习多久？</li>
+<li>你有什么想问我的</li>
+</ul>
+<h2 id="GM-应用宝"><a href="#GM-应用宝" class="headerlink" title="GM-应用宝"></a>GM-应用宝</h2><ul>
+<li>你提到你之前负责过4个月的后端开发，是什么让你转到了现在的客户端开发？</li>
+<li>你从现在到以后的职业发展规划？</li>
+<li>Android你主要是对应用层像View动画这方面了解多一点，还是对Android底层这方面了解多点？</li>
+<li>你底层代码看过些什么？<ul>
+<li>把我最近看过了底层知识都列举了一遍，View事件分发机制，View重绘机制，消息队列，Binder工作原理，Android四大组件的工作过程什么的。</li>
+</ul>
+</li>
+<li>那你说说消息队列怎么实现的吧</li>
+</ul>
+<h1 id="2020春招IEG"><a href="#2020春招IEG" class="headerlink" title="2020春招IEG"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40987010/article/details/106861169">2020春招IEG</a></h1><h2 id="一面-1"><a href="#一面-1" class="headerlink" title="一面-"></a>一面-</h2><ul>
+<li>学校有哪些专业课，说一下？学过哪些语言？</li>
+<li>了解数据结构吗？说说有哪些数据结构？</li>
+<li>HashMap内部实现是怎么样的？扩容机制是咋样的？ArrayList的扩容机制呢？</li>
+<li>数组和列表的区别是什么？ArrayList和LinkedList的区别？</li>
+<li>双向链表怎么判断形成了环路？如果用代码实现怎么判断？</li>
+<li>问个算法题，如何合并两个有序的数组，然后输出新的数组，思路说一下，用本地IDE敲一下吧</li>
+<li>问下计算机网络基础吧，TCP/UDP的区别是啥？UDP的应用场景？</li>
+<li>OSI五层协议分别是哪些？TCP是第几层协议，HTTP呢？HTTP协议与TCP协议的关系</li>
+<li>get/post请求的区别？</li>
+<li>响应状态码：1-5开头的状态码分别表示什么意思？206状态码知道什么意思吗？404知道吗？</li>
+<li>你是用JAVA多点吧？问些JAVA基础，垃圾回收机制知道多少？介绍一遍</li>
+<li>泛型用过吗？你是怎么用泛型的？</li>
+<li>问些安卓方面的问题吧，安卓四大组件分别是哪些？</li>
+<li>Activity的生命周期说一遍？当用户按下home键时，Activity会经过哪些生命周期？如果是从一个Activity切换到另一个Activity呢</li>
+<li>消息队列知道吗？介绍下内部原理</li>
+<li>WebView知道吗？</li>
+</ul>
+<h2 id="二面-1"><a href="#二面-1" class="headerlink" title="二面"></a>二面</h2><ul>
+<li>先做个简短的自我介绍吧</li>
+<li>你简历上提到了2个项目，你能先和我详细介绍下你的第二个项目吗？（接下来就是项目问题了，主要问项目主要是实现了什么功能，怎么实现的？项目架构是咋样的，项目大概问了15分钟吧）</li>
+<li>你项目用到了FFMPEG来实时推流，那FFMPEG内部的实现原理那些你去了解过吗？（这里我回答说我在写这个项目的时候看过，只是时间太久远了，很久没看过这部分，所以现在也忘得差不多了）</li>
+<li>你项目用WebSocket来全双工通讯，那WebSocket能给我介绍下吗，Websocket和Http的联系？它是基于TCP协议还是UDP协议？它是长连接的话，服务器如何保活？</li>
+<li>了解linux吗，知道linux…（linux我不熟，只知道命令，所以这部分跳了）</li>
+<li>Mysql知道吗？索引是用来干啥的？Mysql是怎么通过索引快速查找元素的？</li>
+<li>什么时候会触发操作系统的分页机制？</li>
+<li>进程和线程的区别？守护线程是什么线程？</li>
+<li>快排的时间复杂度是多少？它是稳定排序吗？为什么不稳定？</li>
+<li>说说你用过的集合，都有哪些集合？TreeMap看过吗？和HashMap的区别？</li>
+<li>JVM内存分区中，堆和栈的区别？</li>
+<li>有过并发的经验吗？线程池的工作流程说一下</li>
+</ul>
+<h1 id="腾讯文档2020"><a href="#腾讯文档2020" class="headerlink" title="腾讯文档2020"></a><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/475087">腾讯文档2020</a></h1><h2 id="一面-2"><a href="#一面-2" class="headerlink" title="一面"></a>一面</h2><ul>
+<li>算法题：假期、翻转数列，还有一个名字忘了，但其实就是写个快排</li>
+<li>快速排序的优化方法(提示基准值)</li>
+<li>Java底层了解什么？</li>
+<li>Java程序执行的是什么？</li>
+<li>JVM内存结构</li>
+<li>多线程需要注意什么？(细讲了java中的锁机制)</li>
+<li>详细讲一下项目</li>
+<li>项目中担任的角色</li>
+<li>各种实现的细节</li>
+<li>多线程修改UI怎么处理</li>
+<li>每个项目都可以讲一讲…</li>
+<li>Java中各种数据结构的实现(细讲了HashMap原理)</li>
+<li>各层熟悉的协议讲一讲(HTTP, DNS, TCP, UDP, ICMP, ARP…)</li>
+<li>还有什么你了解的我们没问的？(操作系统：中断, 进程调度, 分页分段, 虚拟内存…)</li>
+</ul>
+<h2 id="二面-2"><a href="#二面-2" class="headerlink" title="二面"></a>二面</h2><ul>
+<li>讲了两个项目，问了多线程的细节</li>
+<li>Synchronize和volatile</li>
+<li>sleep和wait的区别</li>
+<li>生产者消费者模型，java中的三种实现</li>
+<li>JVM内存结构</li>
+<li>OOM发生的位置，原因</li>
+<li>知道哪些设计模式，项目里用过吗</li>
+<li>三次握手四次挥手</li>
+<li>TCP和UDP的区别</li>
+<li>HTTPS流程</li>
+<li>HTTPS是绝对安全的吗</li>
+<li>Hashmap的实现</li>
+<li>有一个生成[1, 5]随机整数的函数，利用它设计一个生成[1, 7]随机数的函数。</li>
+</ul>
+<h2 id="CTO-应该是指GM吧"><a href="#CTO-应该是指GM吧" class="headerlink" title="CTO(应该是指GM吧)"></a>CTO(应该是指GM吧)</h2><ul>
+<li>先自我介绍，大概了解了一下之后，先聊了项目，然后问了一些基础问题。基础问题大概有这几个内容：</li>
+<li>java垃圾回收</li>
+<li>TCP握手挥手</li>
+<li>HTTP报文格式</li>
+<li>深度优先、广度优先</li>
+</ul>
+<h1 id="腾讯PCG事业群-春招3月-但是原本是做Java的"><a href="#腾讯PCG事业群-春招3月-但是原本是做Java的" class="headerlink" title="腾讯PCG事业群-春招3月,但是原本是做Java的"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_40992982/article/details/105141252">腾讯PCG事业群-春招3月,但是原本是做Java的</a></h1><h2 id="一面-3"><a href="#一面-3" class="headerlink" title="一面"></a>一面</h2><ul>
+<li>自我介绍</li>
+<li>我看你这简历上的技能咋都写的是Java的东西呢？安卓的项目做过，SSM的也做过，那你后台开发和Android倾向于哪一个？<ul>
+<li>主要准备的Java，Android没有具体学习过，但是对Android很感兴趣。</li>
+</ul>
+</li>
+<li>你咋选的实习地方北京，能来深圳实习嘛？</li>
+<li>说说项目，我看你上面有个项目做App的，有准备Android方面吗?</li>
+<li>有些SQL比较慢，你咋办？为什么有的SQL这么慢，说说你觉得导致SQL很慢的原因。</li>
+<li>内存泄漏？OOM？什么情况会OOM？</li>
+<li>用过多线程没？说说咋用的。线程池知道不？说说线程池的原理？</li>
+<li>对ArrayList一个读操作，一个写操作，你用多线程咋实现。死锁你知道不？你怎么解决？</li>
+<li>volatile知道吗？volatile的原子性？</li>
+<li>Java中的锁知道哪些？</li>
+<li>线程之间通信的方式？</li>
+<li>JVM调优，说说你能从哪些方面着手？</li>
+<li>JVM和GC简单聊聊，结合JVM内存说说GC。</li>
+<li>HashMap和HastTable，HashMap安全？不安全用什么？hash()？HashTable是怎么实现安全的？</li>
+<li>我对你的Java基础有了一个了解了，下面我们问问网络相关的知识，计算机网络应该学过吧，那说说TCP三次握手？第三次握手能不能去掉？UDP和TCP的区别？</li>
+<li>你知道长连接吗，说说？为啥用长连接？</li>
+<li>HTTP1.0和HTTP2.0的区别？说说NIO？</li>
+<li>HTTPS知道吗？说说SSL？</li>
+<li>好了，网络聊到这里吧，我们说说算法之类的吧。跳台阶知道吧，怎么做啊。<ul>
+<li>一个链表，让你找最中间的节点，你怎么找？</li>
+<li>两个大文件，一个比较大，一个比较小，让你求交集，你怎么做？</li>
+</ul>
+</li>
+<li>那么，我们再问两个智力题吧，没有固定答案，不要限制自己的思路，想到啥说啥，一个粗细不一样的绳子，完整的烧完1个小时，你怎么让他烧15分钟（不一定烧完）。</li>
+<li>一副全新的扑克牌，按顺序的，AAAA，2222，3333，这种，你怎么洗牌能洗散开？</li>
+<li>C++和C了解吗？</li>
+</ul>
+<h2 id="二面-3"><a href="#二面-3" class="headerlink" title="二面"></a>二面</h2><p>算法题</p>
+<h2 id="三面-1"><a href="#三面-1" class="headerlink" title="三面"></a>三面</h2><ul>
+<li>面试官上来又是一通确认身份，然后再次确认实习地有没有要求？深圳确实没啥问题是吧？？？</li>
+<li>说说JVM的内存吧，他们都是干啥的？对象怎么创建？</li>
+<li>每个区域都会发生怎样的异常啊，谁会发生OOM？</li>
+<li>说说你对GC的认识吧。</li>
+<li>知道引用计数法吗？引用计数法有啥优点吗？缺点呢？</li>
+<li>可达性分析？</li>
+<li>垃圾回收的几种算法？比较一下。</li>
+<li>你觉得垃圾回收有什么缺点？</li>
+<li>说说垃圾收集器？有没有想过你说的这些垃圾收集器为啥会有这些缺点呢？</li>
+<li>关于垃圾回收和JVM问的很详细很详细，有的问题记不太清了…</li>
+<li>那我们再说说链表和数组？比较一下它们有啥区别吧，然后再说说数组里面删除一个元素会怎么样，插入一个元素会怎么样，修改一个元素会怎么样，会发生什么事情？</li>
+<li>平时用啥IDE？知道项目run之前干什么吗？<ul>
+<li>说了个编译和检查错误，但是面试官似乎还想让我说点东西…</li>
+</ul>
+</li>
+<li>编译期和运行期的区别？</li>
+<li>指针了解吗？</li>
+<li>十亿个数，一个数4字节，然后你怎么找最大的十个数？十亿个数，占多少内存？</li>
+<li>操作系统中有哪些内存知道吗？平时用什么Windows还是Linux？</li>
+<li>说说寄存器？</li>
+<li>了解编译原理吗？知道计算机组成原理吗？平时都学什么课？</li>
+<li>一个人给另一个人发微信消息，说说可能会发生哪些事情？</li>
+<li>长连接短连接说说区别，你知道的哪些是长连接，哪些是短连接?TCP是短连接还是长连接吗？</li>
+<li>http是基于什么实现的？1.0和1.1什么区别？</li>
+<li>MTU知道吗？以太网帧知道不？MTU大小你知道不？MTU的组成你知道不？</li>
+<li>TCP和UDP是否可靠，为什么不可靠or为什么可靠？</li>
+<li>如果客户端长时间不发消息，那服务器端咋办？【差不多这个意思…】</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.littlecorgi.top">littlecorgi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.littlecorgi.top/posts/9d6997ec.html">https://www.littlecorgi.top/posts/9d6997ec.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.littlecorgi.top" target="_blank">littlecorgiの小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Android/">Android</a><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/Kotlin/">Kotlin</a><a class="post-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a><a class="post-meta__tags" href="/tags/JVM/">JVM</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BB%84/">计组</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%BD%91/">计网</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/" target="_blank"><img class="post-qr-code-img" src="/"/></a><div class="post-qr-code-desc"></div></li><li class="reward-item"><a href="/" target="_blank"><img class="post-qr-code-img" src="/"/></a><div class="post-qr-code-desc"></div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1900f7eb.html"><img class="prev-cover" src="https://i.loli.net/2019/11/10/71wgohfPHqXRbG9.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">AndroidView之PopupWindow</div></div></a></div><div class="next-post pull-right"><a href="/posts/406dd90d.html"><img class="next-cover" src="https://i.loli.net/2019/11/10/xthHmnbdNerWOqP.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">sakura腾讯面经</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/406dd90d.html" title="sakura腾讯面经"><img class="cover" src="https://i.loli.net/2019/11/10/xthHmnbdNerWOqP.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-01-01</div><div class="title">sakura腾讯面经</div></div></a></div><div><a href="/posts/5c3dbcbd.html" title="百度面试题总结"><img class="cover" src="https://i.loli.net/2019/11/10/xthHmnbdNerWOqP.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-01-01</div><div class="title">百度面试题总结</div></div></a></div><div><a href="/posts/702658f4.html" title="腾讯2020年秋招牛客网面经总结"><img class="cover" src="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-01-01</div><div class="title">腾讯2020年秋招牛客网面经总结</div></div></a></div><div><a href="/posts/63ab42b7.html" title="Android多线程1--Java中的阻塞队列"><img class="cover" src="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-06-16</div><div class="title">Android多线程1--Java中的阻塞队列</div></div></a></div><div><a href="/posts/b39fd0ab.html" title="Android多线程2--Java中的线程池"><img class="cover" src="https://i.loli.net/2019/11/10/71wgohfPHqXRbG9.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-06-16</div><div class="title">Android多线程2--Java中的线程池</div></div></a></div><div><a href="/posts/62bb1dd7.html" title="Kotlin Anko入门"><img class="cover" src="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-06-01</div><div class="title">Kotlin Anko入门</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/uploads/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">littlecorgi</div><div class="author-info__description">兴趣使然的个人小站，不定时分享Android等技术博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/littlecorgi-twk" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:littlecorgi.twk@gmail.com" target="_blank" title=""><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">目前准备面试中，面试完了再更新博客。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF0%E5%9F%BA%E7%A1%80%E7%9A%84%EF%BC%8C%E6%84%9F%E8%A7%89%E6%B2%A1%E9%97%AE%E4%B8%AA%E5%95%A5"><span class="toc-text">客户端0基础的，感觉没问个啥</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-2020-8-12"><span class="toc-text">一面&#x2F;2020-8-12</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2-2020-8-20"><span class="toc-text">二面&#x2F;2020&#x2F;8&#x2F;20</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E9%9D%A2-2020-9-2"><span class="toc-text">三面&#x2F;2020-9-2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HR-2020-9-19"><span class="toc-text">HR&#x2F;2020-9-19</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18%E5%B9%B4%E7%9A%84%EF%BC%8C%E6%9C%89%E7%82%B9%E8%80%81%E4%BA%86%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E7%9C%8B%E4%B8%8B"><span class="toc-text">18年的，有点老了，但是可以看下</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2"><span class="toc-text">一面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2"><span class="toc-text">二面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E9%9D%A2"><span class="toc-text">三面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Android%E9%9D%A2%E7%BB%8F-%E9%97%AE%E9%A2%98%E5%BD%92%E7%BA%B3"><span class="toc-text">Android面经| 问题归纳</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2020%E6%98%A5%E6%8B%9BPCG"><span class="toc-text">2020春招PCG</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8E%86%E9%9D%A2-%E5%BA%94%E7%94%A8%E5%AE%9D"><span class="toc-text">简历面-应用宝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-%E5%BA%94%E7%94%A8%E5%AE%9D"><span class="toc-text">一面-应用宝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2-%E5%BA%94%E7%94%A8%E5%AE%9D"><span class="toc-text">二面-应用宝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GM-%E5%BA%94%E7%94%A8%E5%AE%9D"><span class="toc-text">GM-应用宝</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2020%E6%98%A5%E6%8B%9BIEG"><span class="toc-text">2020春招IEG</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-1"><span class="toc-text">一面-</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2-1"><span class="toc-text">二面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%85%BE%E8%AE%AF%E6%96%87%E6%A1%A32020"><span class="toc-text">腾讯文档2020</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-2"><span class="toc-text">一面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2-2"><span class="toc-text">二面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CTO-%E5%BA%94%E8%AF%A5%E6%98%AF%E6%8C%87GM%E5%90%A7"><span class="toc-text">CTO(应该是指GM吧)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%85%BE%E8%AE%AFPCG%E4%BA%8B%E4%B8%9A%E7%BE%A4-%E6%98%A5%E6%8B%9B3%E6%9C%88-%E4%BD%86%E6%98%AF%E5%8E%9F%E6%9C%AC%E6%98%AF%E5%81%9AJava%E7%9A%84"><span class="toc-text">腾讯PCG事业群-春招3月,但是原本是做Java的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E9%9D%A2-3"><span class="toc-text">一面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%9D%A2-3"><span class="toc-text">二面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E9%9D%A2-1"><span class="toc-text">三面</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/79199b37.html" title="深入理解JVM-Reference源码"><img src="https://raw.githubusercontent.com/zxh0/jvmgo-book/master/v1/gophers/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入理解JVM-Reference源码"/></a><div class="content"><a class="title" href="/posts/79199b37.html" title="深入理解JVM-Reference源码">深入理解JVM-Reference源码</a><time datetime="2021-03-21T14:15:24.000Z" title="更新于 2021-03-21 22:15:24">2021-03-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f5a785d7.html" title="Koin-12-Koin for Android"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-12-Koin for Android"/></a><div class="content"><a class="title" href="/posts/f5a785d7.html" title="Koin-12-Koin for Android">Koin-12-Koin for Android</a><time datetime="2020-10-07T13:25:34.000Z" title="更新于 2020-10-07 21:25:34">2020-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ebed2a69.html" title="Koin-11-Koin for Java"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-11-Koin for Java"/></a><div class="content"><a class="title" href="/posts/ebed2a69.html" title="Koin-11-Koin for Java">Koin-11-Koin for Java</a><time datetime="2020-10-07T13:25:27.000Z" title="更新于 2020-10-07 21:25:27">2020-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/63fa5724.html" title="Koin-10-Testing(测试)"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-10-Testing(测试)"/></a><div class="content"><a class="title" href="/posts/63fa5724.html" title="Koin-10-Testing(测试)">Koin-10-Testing(测试)</a><time datetime="2020-10-07T13:25:15.000Z" title="更新于 2020-10-07 21:25:15">2020-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f85e8eae.html" title="Koin-9-Koin Components(组件)"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-9-Koin Components(组件)"/></a><div class="content"><a class="title" href="/posts/f85e8eae.html" title="Koin-9-Koin Components(组件)">Koin-9-Koin Components(组件)</a><time datetime="2020-10-07T13:25:00.000Z" title="更新于 2020-10-07 21:25:00">2020-10-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By littlecorgi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://littlecorgi.top/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

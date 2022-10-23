@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>OpenGL ES 2.0笔记1——简介 | littlecorgiの小站</title><meta name="author" content="littlecorgi"><meta name="copyright" content="littlecorgi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OpenGL是什么？OpenGL ES又是什么？简介OpenGL是一个跨平台的软件接口语言，用于调用硬件的2D、3D图形处理器。 然而受限于现在的移动设备性能，如果将OpenGL直接用在他们上面将会特别卡，于是就出现了OpenGL ES。 OpenGL ES是OpenGL的分支，他专门作用于嵌入式设"><link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png"><link rel="canonical" href="https://www.littlecorgi.top/posts/a92b4a54"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d96f5834c289ac641e8340af58c61f69";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: 
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'OpenGL ES 2.0笔记1——简介',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2019-10-17 10:43:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="littlecorgiの小站" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/uploads/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标志</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Koin"><i class="fa-fw /koin/"></i><span> 0</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=8045afbe12d5ad6ebef46cb8e0a252be/78310a55b319ebc4e51be2e38b26cffc1e17166c.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">littlecorgiの小站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标志</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Koin"><i class="fa-fw /koin/"></i><span> 0</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OpenGL ES 2.0笔记1——简介</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-17T02:43:11.000Z" title="发表于 2019-10-17 10:43:11">2019-10-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2019-10-17T02:43:11.000Z" title="更新于 2019-10-17 10:43:11">2019-10-17</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OpenGL/">OpenGL</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="OpenGL ES 2.0笔记1——简介"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="OpenGL是什么？OpenGL-ES又是什么？"><a href="#OpenGL是什么？OpenGL-ES又是什么？" class="headerlink" title="OpenGL是什么？OpenGL ES又是什么？"></a>OpenGL是什么？OpenGL ES又是什么？</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>OpenGL是一个跨平台的软件接口语言，用于调用硬件的2D、3D图形处理器。</p>
+<p>然而受限于现在的移动设备性能，如果将OpenGL直接用在他们上面将会特别卡，于是就出现了OpenGL ES。 OpenGL ES是OpenGL的分支，他专门作用于嵌入式设备，去掉了OpenGL很多不必要的功能。</p>
+<span id="more"></span>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li>游戏</li>
+<li>视频播放器</li>
+<li>视频编辑应用</li>
+<li>图片编辑应用</li>
+</ul>
+<p>等对图像处理的及时性要求较高的应用场景。</p>
+<h2 id="Android对OpenGL-ES-的支持"><a href="#Android对OpenGL-ES-的支持" class="headerlink" title="Android对OpenGL ES 的支持"></a>Android对OpenGL ES 的支持</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">OpenGL ES 版本</th>
+<th style="text-align:center">基于OpenGL的版本</th>
+<th style="text-align:center">Android引入的版本</th>
+<th style="text-align:center">兼容性</th>
+<th style="text-align:center">功能、特色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1.0&amp;1.1</td>
+<td style="text-align:center">1.3&amp;1.5</td>
+<td style="text-align:center">Android 1.0</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">固定的图像管道，开发难度相比2.0低</td>
+</tr>
+<tr>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">Android 2.2</td>
+<td style="text-align:center">不兼容1.x</td>
+<td style="text-align:center">可编程的渲染管道，性能效率更高，开发难度更高</td>
+</tr>
+<tr>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">3.x</td>
+<td style="text-align:center">Android 4.3</td>
+<td style="text-align:center">兼容2.0</td>
+<td style="text-align:center">性能更高，支持ETC2格式的透明纹理压缩</td>
+</tr>
+<tr>
+<td style="text-align:center">3.1</td>
+<td style="text-align:center">4.x</td>
+<td style="text-align:center">Android 5.0</td>
+<td style="text-align:center">兼容2.0/3.0</td>
+<td style="text-align:center">新增计算着色器、单独的着色器对象等新特性</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="版本的选择"><a href="#版本的选择" class="headerlink" title="版本的选择"></a>版本的选择</h2><p>由于此篇博客是学习阶段写的，而我在网上找到的大部分博客都是2.0，所以就以2.0为主。</p>
+<p>其实我觉得应该是3.0，2.0确实太老了，现在Android4.3的手机都较少见了，而3.1又太新了。</p>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p>首先你得在AndroidManifest.xml中加入<br><code>&lt;uses-feature android:glEsVersion=&quot;0x00020000&quot; android:required=&quot;true&quot; /&gt;</code></p>
+<p>其中不同版本对应值：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">OpenGL ES 版本</th>
+<th style="text-align:center">glEsVersion 版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2.0</td>
+<td style="text-align:center">0x00020000</td>
+</tr>
+<tr>
+<td style="text-align:center">3.0</td>
+<td style="text-align:center">0x00030000</td>
+</tr>
+<tr>
+<td style="text-align:center">3.1</td>
+<td style="text-align:center">0x00030001</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 id="基本框架"><a href="#基本框架" class="headerlink" title="基本框架"></a>基本框架</h1><p>Android框架里面提供了两个类来给你使用OpenGL ES API创建和操作图形：<code>GLSrufaceView</code>和<code>GLSurfaceView.Renderer</code>。</p>
+<h2 id="GLSrufaceView"><a href="#GLSrufaceView" class="headerlink" title="GLSrufaceView"></a>GLSrufaceView</h2><p>这是一个视图类，你可以通过OpenGL ES API来绘制和操作图形对象，他在功能上很类似与<code>SurfaceView</code>。你可以通过创建一个<code>SurfaceView</code>的实例并添加你的渲染器来使用这个类。</p>
+<p>他的常用方法有：</p>
+<ul>
+<li><code>setEGLContextClientVersion</code>：设置OpenGL ES版本，2.0则设置2</li>
+<li><code>onPause</code>：暂停渲染，最好是在<code>Activity</code>、<code>Fragment</code>的<code>onPause()</code>方法内调用，减少不必要的性能开销，避免不必要的崩溃</li>
+<li><code>onResume</code>：恢复渲染，用法类比<code>onPause()</code></li>
+<li><code>setRenderer</code>：设置渲染器</li>
+<li><code>setRenderMode</code>：设置渲染模式</li>
+<li><code>requestRender</code>: 请求渲染，由于是请求异步线程进行渲染，所以不是同步方法，调用后不会立刻就进行渲染。渲染会回调到<code>Renderer</code>接口的<code>onDrawFrame()</code>方法。</li>
+<li><code>queueEvent</code>：插入一个<code>Runnable</code>任务到后台渲染线程上执行。相应的，渲染线程中可以通过<code>Activity</code>的<code>runOnUIThread</code>的方法来传递事件给主线程去执行</li>
+</ul>
+<p>其中，GLSurfaceView的渲染模式有：</p>
+<ul>
+<li><code>RENDERMODE_CONTINUOUSLY</code>：不停地渲染</li>
+<li><code>RENDERMODE_WHEN_DIRTY</code>：只有调用了<code>requestRender()</code>之后才会触发渲染回调onDrawFrame方法</li>
+</ul>
+<h2 id="GLSurfaceView-Renderer"><a href="#GLSurfaceView-Renderer" class="headerlink" title="GLSurfaceView.Renderer"></a>GLSurfaceView.Renderer</h2><p>此接口定义了在GLSurfaceView中绘制图形所需的方法。必须将此接口的实现作为单独的类提供，并使用GLSurfaceView.setRenderer()将其添加到GLSurfaceView的实现类中。</p>
+<p>他的主要方法有三个：</p>
+<ul>
+<li><code>onSurfaceCreated(GL10 gl, EGLConfig config)</code>：GLSurfaceView内的Surface被创建时会被调用到</li>
+<li><code>onSurfaceChanged(GL10 gl, int width, int height)</code>：Surface尺寸改变时调用到</li>
+<li><code>onDrawFrame(GL10 gl)</code>：渲染绘制每一帧时调用到</li>
+</ul>
+<p>一般情况下，首次创建GLSurfaceView时，会顺序调用<code>onSurfaceCreated()</code> -&gt; <code>onSurfaceChanged()</code> -&gt; <code>onDrawFrame()</code>。然后每绘制一帧，都会不停地回调<code>onDrawFrame()</code>方法。</p>
+<h1 id="编写流程"><a href="#编写流程" class="headerlink" title="编写流程"></a>编写流程</h1><p>首先我们来写一个基本框架。</p>
+<p>创建一个Android项目，然后Activity选择EmptyActivity。</p>
+<p><strong>注意：本项目某些类或者方法通过AndroidStudio导入的时候会让你选择是从哪个包里面导入，一致选择<code>android.opengl.GLES20</code></strong></p>
+<h2 id="编写Activity"><a href="#编写Activity" class="headerlink" title="编写Activity"></a>编写Activity</h2><p>打开我们项目的MainActivity，你就能看到熟悉的onCreate方法，接下来我们要对这个Activity进行一些更改。</p>
+<p>首先，我们要创建一个GLSurfaceView的对象,并添加一个新的成员变量：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> GLSurfaceView glSurfaceView;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">boolean</span> rendererSet = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure></p>
+<p>接下来将<code>setContentView()</code>移除，并对glSurfaceView进行初始化：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    glSurfaceView = <span class="keyword">new</span> GLSurfaceView(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>由于我们是在写OpenGL ES2.0的代码，所以我们需要检测当前运行APP的系统支不支持OpenGL ES2.0。我们将下面几行代码添加到onCreate()里面去:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);</span><br><span class="line"><span class="keyword">final</span> ConfigurationInfo configurationInfo = activityManager.deviceConfigurationInfo();</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">boolean</span> supportsEs2 = configurationInfo.reqGlEsVersion &gt;= <span class="number">0x20000</span>;</span><br></pre></td></tr></table></figure></p>
+<p>但是这段代码在模拟器上不能工作，因为GPU模拟部分有缺陷。为了使代码在模拟器上运行，我们要按如下代码修改检查条件：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">boolean</span> supportsEs2 = configurationInfo.reqGlEsVersion &gt;= <span class="number">0x20000</span></span><br><span class="line">    || (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1</span><br><span class="line">    &amp;&amp; (Build.FINGERPRINT.startsWith(<span class="string">&quot;generic&quot;</span>)</span><br><span class="line">    || Build.FINGERPRINT.startsWith(<span class="string">&quot;unknown&quot;</span>)</span><br><span class="line">    || Build.MODEL.contains(<span class="string">&quot;google_sdk&quot;</span>)</span><br><span class="line">    || Build.MODEL.contains(<span class="string">&quot;Emulator&quot;</span>)</span><br><span class="line">    || Build.MODEL.contains(<span class="string">&quot;Android SDK build for x86&quot;</span>)))</span><br></pre></td></tr></table></figure></p>
+<p>接下来就是配置渲染表面：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (supportsEs2) &#123;</span><br><span class="line">    <span class="comment">// 配置这个surface视图</span></span><br><span class="line">    glSurfaceView.setEGLContextClientVersion(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 配置Renderer</span></span><br><span class="line">    glSurfaceView.setRenderer(FirstOpenGLProjectRenderer());</span><br><span class="line">    rendererSet = <span class="keyword">true</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;This device does not support OpenGL ES 2.0&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setContentView(glSurfaceView);</span><br></pre></td></tr></table></figure></p>
+<p>最后我们还得处理下Activity的生命周期，也就是将GLSurfaceView的生命周期跟Activity的生命周期绑定起来：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onPause();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rendererSet)</span><br><span class="line">        glSurfaceView.onPause();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onResume();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rendererSet)</span><br><span class="line">        glSurfaceView.onResume();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="编写Renderer"><a href="#编写Renderer" class="headerlink" title="编写Renderer"></a>编写Renderer</h2><p>创建一个新的文件，命名为FirstOpenGLProjectRenderer，让让这个类继承自GLSurfaceView.Renderer。</p>
+<p>接着就实现三个必备方法:</p>
+<ul>
+<li><code>onSurfaceCreate()</code>：创建时被调用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceCreated</span><span class="params">(GL10 glUnsed, EGLConfig config)</span> </span>&#123;</span><br><span class="line">    glClearColor(<span class="number">1.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>); <span class="comment">//设置一个清空屏幕用的颜色</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>onSurfaceChanged()</code>：创建后每当Surface尺寸改变时，都调用此方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSurfaceChanged</span><span class="params">(GL10 glUnsed, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</span><br><span class="line">    glViewport(<span class="number">0</span>, <span class="number">0</span>, width, height); <span class="comment">//设置视窗尺寸</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>onDrawFrame()</code>：绘制每一帧时调用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDrawFrame</span><span class="params">(GL10 glUnsed)</span> </span>&#123;</span><br><span class="line">    glClear(GL_COLOR_BUFFER_BIT); <span class="comment">//清空屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后就可以运行程序了，你就可以看到整个屏幕都成了红色，这是为啥呢？<br>因为我们在onSurfaceCreated方法里面设置了glClearColor(1.0f,0.0f,0.0f,0.0f)。这个方法的参数对应的是RGBA，然后我们又在onDrawFrame方法中设置了清屏，所以这样你就会看到的是红色了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://www.littlecorgi.top">littlecorgi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.littlecorgi.top/posts/a92b4a54.html">https://www.littlecorgi.top/posts/a92b4a54.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.littlecorgi.top" target="_blank">littlecorgiの小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Android/">Android</a><a class="post-meta__tags" href="/tags/OpenGL/">OpenGL</a><a class="post-meta__tags" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a></div><div class="post_share"><div class="social-share" data-image="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=8045afbe12d5ad6ebef46cb8e0a252be/78310a55b319ebc4e51be2e38b26cffc1e17166c.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/" target="_blank"><img class="post-qr-code-img" src="/"/></a><div class="post-qr-code-desc"></div></li><li class="reward-item"><a href="/" target="_blank"><img class="post-qr-code-img" src="/"/></a><div class="post-qr-code-desc"></div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/268eb1c2.html"><img class="prev-cover" src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=8045afbe12d5ad6ebef46cb8e0a252be/78310a55b319ebc4e51be2e38b26cffc1e17166c.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">OpenGL ES 2.0笔记2——顶点、坐标、图元</div></div></a></div><div class="next-post pull-right"><a href="/posts/f0e3723.html"><img class="next-cover" src="https://cdn.littlecorgi.top/blog/Flutter2.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Flutter入门并开发天气预报APP(8)——天气预报第二步-选择省、市、区界面及网络请求</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/268eb1c2.html" title="OpenGL ES 2.0笔记2——顶点、坐标、图元"><img class="cover" src="https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=8045afbe12d5ad6ebef46cb8e0a252be/78310a55b319ebc4e51be2e38b26cffc1e17166c.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-10-18</div><div class="title">OpenGL ES 2.0笔记2——顶点、坐标、图元</div></div></a></div><div><a href="/posts/1900f7eb.html" title="AndroidView之PopupWindow"><img class="cover" src="https://i.loli.net/2019/11/10/71wgohfPHqXRbG9.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-05-31</div><div class="title">AndroidView之PopupWindow</div></div></a></div><div><a href="/posts/63ab42b7.html" title="Android多线程1--Java中的阻塞队列"><img class="cover" src="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-06-16</div><div class="title">Android多线程1--Java中的阻塞队列</div></div></a></div><div><a href="/posts/b39fd0ab.html" title="Android多线程2--Java中的线程池"><img class="cover" src="https://i.loli.net/2019/11/10/71wgohfPHqXRbG9.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-06-16</div><div class="title">Android多线程2--Java中的线程池</div></div></a></div><div><a href="/posts/21eb5c30.html" title="Android消息机制之Handler详解"><img class="cover" src="https://cdn.littlecorgi.top/blog/Keynote_Blog_FINAL.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-17</div><div class="title">Android消息机制之Handler详解</div></div></a></div><div><a href="/posts/64f0a9f6.html" title="Android消息机制之ThreadLocal"><img class="cover" src="https://cdn.littlecorgi.top/blog/Keynote_Blog_FINAL.png" alt="cover"><div class="content is-center"><div class="date"><i class="fas fa-history fa-fw"></i> 2019-11-08</div><div class="title">Android消息机制之ThreadLocal</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/uploads/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">littlecorgi</div><div class="author-info__description">兴趣使然的个人小站，不定时分享Android等技术博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">43</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/littlecorgi-twk" target="_blank" title=""><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:littlecorgi.twk@gmail.com" target="_blank" title=""><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">目前准备面试中，面试完了再更新博客。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenGL%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9FOpenGL-ES%E5%8F%88%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">OpenGL是什么？OpenGL ES又是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Android%E5%AF%B9OpenGL-ES-%E7%9A%84%E6%94%AF%E6%8C%81"><span class="toc-text">Android对OpenGL ES 的支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-text">版本的选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5"><span class="toc-text">导入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A1%86%E6%9E%B6"><span class="toc-text">基本框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#GLSrufaceView"><span class="toc-text">GLSrufaceView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GLSurfaceView-Renderer"><span class="toc-text">GLSurfaceView.Renderer</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E6%B5%81%E7%A8%8B"><span class="toc-text">编写流程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99Activity"><span class="toc-text">编写Activity</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99Renderer"><span class="toc-text">编写Renderer</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/79199b37.html" title="深入理解JVM-Reference源码"><img src="https://raw.githubusercontent.com/zxh0/jvmgo-book/master/v1/gophers/cover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入理解JVM-Reference源码"/></a><div class="content"><a class="title" href="/posts/79199b37.html" title="深入理解JVM-Reference源码">深入理解JVM-Reference源码</a><time datetime="2021-03-21T14:15:24.000Z" title="更新于 2021-03-21 22:15:24">2021-03-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f5a785d7.html" title="Koin-12-Koin for Android"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-12-Koin for Android"/></a><div class="content"><a class="title" href="/posts/f5a785d7.html" title="Koin-12-Koin for Android">Koin-12-Koin for Android</a><time datetime="2020-10-07T13:25:34.000Z" title="更新于 2020-10-07 21:25:34">2020-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ebed2a69.html" title="Koin-11-Koin for Java"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-11-Koin for Java"/></a><div class="content"><a class="title" href="/posts/ebed2a69.html" title="Koin-11-Koin for Java">Koin-11-Koin for Java</a><time datetime="2020-10-07T13:25:27.000Z" title="更新于 2020-10-07 21:25:27">2020-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/63fa5724.html" title="Koin-10-Testing(测试)"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-10-Testing(测试)"/></a><div class="content"><a class="title" href="/posts/63fa5724.html" title="Koin-10-Testing(测试)">Koin-10-Testing(测试)</a><time datetime="2020-10-07T13:25:15.000Z" title="更新于 2020-10-07 21:25:15">2020-10-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/f85e8eae.html" title="Koin-9-Koin Components(组件)"><img src="https://pbs.twimg.com/profile_banners/936214891731603456/1523947778/1500x500" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Koin-9-Koin Components(组件)"/></a><div class="content"><a class="title" href="/posts/f85e8eae.html" title="Koin-9-Koin Components(组件)">Koin-9-Koin Components(组件)</a><time datetime="2020-10-07T13:25:00.000Z" title="更新于 2020-10-07 21:25:00">2020-10-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike150%2C5%2C5%2C150%2C50/sign=8045afbe12d5ad6ebef46cb8e0a252be/78310a55b319ebc4e51be2e38b26cffc1e17166c.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By littlecorgi</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://littlecorgi.top/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
