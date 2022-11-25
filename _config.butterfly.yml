@@ -116,7 +116,7 @@ index_img:
 # https://api.dujin.org/bing/1366.php
 
 # if the banner of page not setting,it will show the top_img
-default_top_img: https://cdn.littlecorgi.top/top_img_index.jpg
+default_top_img: https://i.loli.net/2019/05/22/5ce53eb6dc82757840.jpg
 
 # the banner image of archive page
 archive_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg
@@ -147,7 +147,6 @@ cover:
     - https://i.loli.net/2019/11/10/71wgohfPHqXRbG9.png
     - https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png
     - https://i.loli.net/2019/11/10/xthHmnbdNerWOqP.png
-  #  - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
 
 # if the photo link cannot connect,it will show that
 lodding_bg:
