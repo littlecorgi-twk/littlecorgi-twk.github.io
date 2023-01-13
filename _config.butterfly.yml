@@ -397,13 +397,13 @@ footer:
   owner:
     enable: true
     since: 2019
-  custom_text: Hi, welcome to my <a href="https://littlecorgi.top/">blog</a>!
+  custom_text: <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备2022036896号-1</a>
   copyright: true # Copyright of theme and framework
   ICP: # Chinese ICP License
-    enable: true
-    url: https://hb.beian.miit.gov.cn/state/outPortal/loginPortal.action
-    text: 鄂ICP备19018829号
-    icon: /img/icp.png
+    enable: false
+    url: https://beian.miit.gov.cn/
+    text: 粤ICP备2022036896号-1
+    icon: 
 
 # Analysis
 # --------------------------------------
