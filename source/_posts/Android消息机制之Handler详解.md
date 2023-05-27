@@ -1,5 +1,5 @@
 ---
-title: Android消息机制之Handler详解
+title: Android消息机制之Handler
 categories:
   - Android
 tags:

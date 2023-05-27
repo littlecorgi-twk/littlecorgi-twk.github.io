@@ -84,6 +84,7 @@ pagination_dir: page
 ## theme: next
 ## theme: hexo-casper
 theme: Butterfly
+## theme: icarus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
