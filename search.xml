@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>macOS 无法自动切换到深色模式</title>
+      <link href="/posts/461f9d52.html"/>
+      <url>/posts/461f9d52.html</url>
+      
+        <content type="html"><![CDATA[<p>在 macOS 的设置里面明明将「外观」设置的是自动，但是每次 macOS 都不能及时的将颜色主题切换为深色模式。排查后才发现，原来是「夜览」搞的鬼，记录下解决方案。</p><h3 id="macOS-奇怪的逻辑"><a href="#macOS-奇怪的逻辑" class="headerlink" title="macOS 奇怪的逻辑"></a>macOS 奇怪的逻辑</h3><p>macOS 的奇怪逻辑，深色模式和夜览是绑定的：哪怕 mac 认为已经到了深色模式的时间点了，比如支持切换颜色的壁纸已经变黑了，但是 APP 还是按浅色外观展示的。原因就是夜览认为自己还没到「夜间」可以展示夜览的时候，也就不允许 mac 切换到深色模式。</p><h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>所以解决办法就是：</p><ol><li>外观选择自动，关闭夜览（✅推荐！！）</li><li>外观选择自动，夜览选择手动调整时间</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Apple </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Apple </tag>
+            
+            <tag> macOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>香港银行开户-永隆</title>
       <link href="/posts/5a1fdd14.html"/>
       <url>/posts/5a1fdd14.html</url>
