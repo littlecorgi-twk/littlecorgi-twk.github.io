@@ -112,7 +112,7 @@ kramed:
   smartypants: true
 
 feed:
-    type: atom
+    type: rss2
     path: atom.xml
     limit: 0
     hub:
