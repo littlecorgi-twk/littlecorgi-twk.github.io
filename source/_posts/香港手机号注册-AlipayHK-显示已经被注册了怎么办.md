@@ -7,13 +7,8 @@ tags:
   - 银行
 cover: >-
   https://cos.littlecorgi.top/picgo/2024-05-07-alipayHK%E6%89%8B%E6%9C%BA%E5%8F%B7%E5%B7%B2%E7%BB%8F%E8%A2%AB%E6%B3%A8%E5%86%8C.png
-toc: 是否显示toc （除非特定文章设置，可以不写）
-toc_number: 是否显示toc数字 （除非特定文章设置，可以不写）
-top_img: （除非特定需要，可以不写）
-comments: '是否显示评论（除非设置false,可以不写）'
-copyright: 是否显示版权 （除非特定文章设置，可以不写）
-hide: '是否隐藏文章（除非设置true,可以不写）'
-sticky: 100 (除非需要手动指定，可以不写。数字越大，文章越靠前。)
+toc: true
+toc_number: true
 abbrlink: a219d82b
 date: 2024-05-07 14:26:13
 updated: 2024-05-07 14:26:13
